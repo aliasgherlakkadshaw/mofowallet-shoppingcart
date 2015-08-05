@@ -1,0 +1,32 @@
+	<div class="row">
+		<div class="col-md-12">
+			<a href= "#/accounts/{{id_rs}}/goods/add" class= "btn btn-primary pull-right">Add Goods</a>
+      <a href="#/accounts/{{id_rs}}/goods/viewcart" class= "cart-count pull-right">Cart ({{shoppingCart.length}})</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-condensed">
+              <thead>
+              	<tr>
+              		<th>Name</th>
+              		<th>Description</th>
+              		<th>Tags</th>
+              		<th>Quantity</th>
+              		<th>PriceNQT</th>
+              		<th></th>
+              	</tr>
+              </thead>
+               <tbody>
+              	<tr ng-repeat= "goods in allGoods" ng-if= "allGoods.length > 0" style= "cursor: pointer;">
+              		<td ng-click= "details(goods)">{{goods.name}}</td>
+              		<td ng-click= "details(goods)">{{goods.description}}</td>
+              		<td ng-click= "details(goods)">{{goods.tags}}</td>
+              		<td ng-click= "details(goods)">{{goods.quantity}}</td>
+              		<td ng-click= "details(goods)">{{goods.priceNQT}}</td>
+              		<td ng-click= "deleteGood(goods)">Delete</td>
+              	</tr>
+              </tbody>
+      </table>
+		</div>
+	</div>

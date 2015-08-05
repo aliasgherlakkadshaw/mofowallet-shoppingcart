@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<a href= "#/accounts/{{id_rs}}/goods" class= "btn btn-primary pull-right">Goods</a>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<form>
+				<div class="form-group">
+					<p ng-show= "showError">Please enter full form</p>
+					<p ng-show= "isNumber">Please enter Quantity and Price in Number</p>
+					<p>Name</p>
+					<input type= "text" placeholder= "Name" ng-model= "goods.name" class= "form-control" style= "margin-bottom: 15px;">
+					<p>Description</p>
+					<input type= "text" placeholder= "Description" ng-model= "goods.description" class= "form-control" style= "margin-bottom: 15px;">
+
+					<p>Tags</p>
+					<input type= "text" placeholder= "Tags" ng-model= "goods.tags" class= "form-control" style= "margin-bottom: 15px;">
+
+					<p>Quantity</p>
+					<input type= "text" placeholder= "Quantity" ng-model= "goods.quantity" class= "form-control" style= "margin-bottom: 15px;">
+
+					<p>PriceNQT</p>
+					<input type= "text" placeholder= "PriceNQT" ng-model= "goods.pricenqt" class= "form-control" style= "margin-bottom: 15px;">
+
+					<button class= "btn btn-primary pull-right" ng-click= "saveGoods(goods)">Save</button>
+					<a href="#/accounts/{{id_rs}}/goods" class= "btn btn-danger pull-right" style= "margin-right: 10px;">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
