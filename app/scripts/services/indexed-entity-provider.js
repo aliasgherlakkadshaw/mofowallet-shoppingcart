@@ -5,6 +5,7 @@ module.factory('IndexedEntityProvider', function (nxt, $timeout, $q) {
 
   function IndexedEntityProvider() {
   }
+  
   IndexedEntityProvider.prototype = {
     
     /**

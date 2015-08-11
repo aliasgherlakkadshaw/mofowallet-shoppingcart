@@ -40,6 +40,14 @@ module.config(function($routeProvider) {
       templateUrl: 'partials/cart.html',
       controller: 'CartCtrl'
     })
+    .when('/accounts/:id_rs/goods/search', {
+      templateUrl: 'partials/search-goods.html',
+      controller: 'SearchGoodsCtrl'
+    })
+    .when('/accounts/:id_rs/goods/past/orders', {
+      templateUrl: 'partials/past-orders.html',
+      controller: 'PastOrdersCtrl'
+    })
 });
 
 module.run(function ($log, $rootScope, $translate, plugins, serverService) {

@@ -1,10 +1,11 @@
 	<div class="row">
 		<div class="col-md-12">
-			<a href= "#/accounts/{{id_rs}}/goods" class= "btn btn-primary pull-right">Back to Goods</a>
+      <a href= "#/accounts/{{id_rs}}/goods" class= "btn btn-primary pull-right" style= "height: 39px; padding-top: 8px;">Back to Goods</a>
       <label class= "pull-right cart-count">Cart ({{shoppingCart.length}})</label>
+      <a href= "#/accounts/{{id_rs}}/goods/past/orders" class= "btn btn-default pull-right" style= "height: 39px; padding-top: 8px; margin-right: 10px;">Past Orders</a>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" ng-if= "shoppingCart.length > 0">
 		<div class="col-md-12" style= "padding: 0px;">
 			<table class="table table-condensed" style= "margin-top: 5%; margin-bottom: 0px;">
               <thead>
@@ -20,15 +21,15 @@
               	</tr>
               </thead>
                <tbody>
-              	<tr style= "height: 160px;" ng-repeat= "items in shoppingCart">
+              	<tr style= "height: 160px; border-bottom: 1px solid #DDDDDD;" ng-repeat= "items in shoppingCart">
                   <td style= "width: 100px; padding-left: 50px;"> <img src="images/imac.jpg" style= "width: 100px; padding-top: 40px;"> </td>
               		<td style= "width: 30%; padding-top: 12px; font-size: 15px; padding-top: 40px;">
                     <p><b>Name: </b>{{items.name}}</p>
                     <p><b>Seller: </b>{{items.seller}}</p>
-                    <p ng-click= "remove($index)" style= "cursor: pointer; text-align: right; margin-right: 20px; color: #0F73D5; text-decoration: underline;">Remove Item</p>
+                    <p ng-click= "remove($index)" style= "cursor: pointer; margin-right: 20px; color: #0F73D5; text-decoration: underline;">Remove Item</p>
                   </td>
               		<td style= "padding-top: 55px;">
-                    <label contenteditable= "true" style= "min-width: 20px; padding-left: 6px; font-size: 15px;">1</label>
+                    <label style= "min-width: 20px; padding-left: 6px; font-size: 15px;">1</label>
                   </td>
               		<td style= "padding-top: 55px; font-size: 15px;"><b>FIMK: </b>{{items.priceNQT}}</td>
               		<td style= "padding-top: 55px; font-size: 15px; width: 14.1%;"><b>Total Price: {{items.priceNQT}}</b></td>
@@ -60,6 +61,14 @@
         <button class= "btn btn-success" style= "margin-right: 30px; background-color: #F76618; border-radius: 4px; border: none; width: 200px; margin-top: 20px;" ng-click= "placeOrder()">Place Order</button>
       </div>
         <hr>
+    </div>
+  </div>
+
+  <div class="row" ng-if= "shoppingCart.length == 0">
+    <div class="col-md-12" style= "text-align: center; padding-top: 10%;">
+      <label style= "font-size: 16px; margin-bottom: 15px;">No pending orders to place. Your Shopping Cart is empty.</label>
+      <br>
+      <a href="#/accounts/{{id_rs}}/goods" class= "btn btn-success">Continue Shopping</a>
     </div>
   </div>
 

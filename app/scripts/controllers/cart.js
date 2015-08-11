@@ -18,19 +18,23 @@ module.controller('CartCtrl', function($location, $q, $scope, modals, $routePara
 		$scope.placeOrder = function() {
 			$scope.shoppingCart.forEach(function(abc) {
 				console.log(abc);
+				var time = new Date;
+				console.log(time.getTime);
 				var order_args = {
 					requestType: "dgsPurchase",
 					goods: abc.goods,
-					quantity: '1',
-					SecretPhrase: "I won't tell you",
+					// quantity: '1',
+					// SecretPhrase: "I won't tell you",
 					priceNQT: abc.priceNQT,
-					deliveryDeadlineTimestamp: '1'
+					deliveryDeadlineTimestamp: nxt.util.convertToEpochTimestamp(Date.now()) + 60 * 60 * 168
 				}
 
-				api.engine.socket().callAPIFunction(order_args).then(function(data) {
-					console.log(data);
-					$location.path('/accounts/'+$scope.id_rs+'/goods')
-				})
+				// api.engine.socket().callAPIFunction(order_args).then(function(data) {
+				// 	console.log(data);
+				// 	$location.path('/accounts/'+$scope.id_rs+'/goods')
+				// })
+
+				plugins.get('transaction').get('dgsPurchase').execute($scope.id_rs, order_args);
 			})
 		}
 
